@@ -1,31 +1,17 @@
-const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
-  entry: './src/app.js',
+  entry: path.resolve(__dirname, "entry.js"),
   output: {
-    filename: 'app.bundle.js',
-    path: './bin'
+    path: path.resolve(__dirname),
+    filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: 'node_modules/',
-      loader: 'babel-loader'
-    }]
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      output: {
-        comments: false
-      }
-    })
-  ]
+    loaders: [
+      {test: /\.css$/, loader: 'style!css'}
+    ]
+  }
 }
-
-
 
 
 
