@@ -27,10 +27,17 @@ module.exports = (() => {
             loader: 'babel-loader',
             query: {
                 presets: ['es2015']
-            }
-        },{
+            },
+            include: APP_PATH
+        }, {
             test: /\.css$/,
             loaders: ['style', 'css']
+        }, {
+            test: /\.scss$/,
+            loaders: ['style', 'css', 'sass']
+        }, {
+            test: /\.(png|jpg)$/,
+            loader: 'url?limit=40000'
         }]
     }
 
