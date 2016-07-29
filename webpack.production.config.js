@@ -14,8 +14,8 @@ module.exports = (() => {
     let config = {}
 
     /*
-    *  这样我们 build 出来的只有一个 bundle.js，如果第三方库很多的话，会造成这个文件非常大，减慢加载速度，现在我们要把第三方库和我们app本身的代码分成两个文件。
-    * */
+     *  这样我们 build 出来的只有一个 bundle.js，如果第三方库很多的话，会造成这个文件非常大，减慢加载速度，现在我们要把第三方库和我们app本身的代码分成两个文件。
+     * */
     // config.entry = APP_PATH
 
     // config.entry = {
@@ -69,6 +69,9 @@ module.exports = (() => {
         }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=40000'
+        }, {
+            test: /\.yaml$/,
+            loader: 'json!yaml'
         }],
 
         preLoaders: [{
@@ -90,10 +93,10 @@ module.exports = (() => {
 
     config.plugins = [
 
-/*        // 我们可以自己在 build 文件夹里面手动建一个index.html文件夹，然后再把合并以后的js引用在里面，但是这样有些麻烦，所以我们这里安装一个plugin，可以自动快速的帮我们生成HTML
-        new HtmlWebpackPlugin({
-            title: 'hahahahaha'
-        }),*/
+        /*        // 我们可以自己在 build 文件夹里面手动建一个index.html文件夹，然后再把合并以后的js引用在里面，但是这样有些麻烦，所以我们这里安装一个plugin，可以自动快速的帮我们生成HTML
+         new HtmlWebpackPlugin({
+         title: 'hahahahaha'
+         }),*/
 
         // 创建了两个 HtmlWebpackPlugin 的实例，生成两个页面
         new HtmlWebpackPlugin({

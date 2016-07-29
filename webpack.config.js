@@ -69,6 +69,9 @@ module.exports = (() => {
         }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=40000'
+        }, {
+            test: /\.yaml$/,
+            loader: 'json!yaml'
         }],
 
         preLoaders: [{

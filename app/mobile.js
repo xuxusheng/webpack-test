@@ -5,10 +5,12 @@
 import './css/main.scss'
 import $ from 'jquery'
 import 'imports?jQuery=jquery!./plugin/plugin'
+import info from './data/info.yaml'
 
 $(document).ready(function() {
     let app = document.createElement('div')
     app.innerHTML = '<h1>Hello world, I am mobile.js!</h1>'
     document.body.appendChild(app)
     $('h1').greenify()
+    console.log(info)
 })
