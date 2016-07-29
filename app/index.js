@@ -14,7 +14,7 @@ import 'imports?jQuery=jquery!./plugin/plugin'
 
 
 
-const myPromise = Promise.resolve(42)
+const myPromise = Promise.resolve(44)
 myPromise.then((number) => {
     $('body').append('<p>promise result is ' + number + 'now is' + moment().format())
 
