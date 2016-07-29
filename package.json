@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline --colors --compress",
+    "build": "webpack --progress --profile --colors --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,10 @@
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
+    "imports-loader": "^0.6.5",
     "jquery": "^3.1.0",
+    "jshint": "^2.9.2",
+    "jshint-loader": "^0.8.3",
     "moment": "^2.14.1",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",

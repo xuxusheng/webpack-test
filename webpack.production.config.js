@@ -87,20 +87,5 @@ module.exports = (() => {
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
     ]
 
-    config.devtool = 'eval-source-map'
-
-    config.devServer = {
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-        proxy: {
-            '/api/*': {
-                target: 'http://192.168.11.198:5000',
-                secure: false
-            }
-        }
-    }
-
     return config
 })()
