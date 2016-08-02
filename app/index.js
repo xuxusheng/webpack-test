@@ -32,3 +32,29 @@ app.appendChild(sub.generateText())
 document.body.appendChild(app)
 
 ajax()
+
+/*-----------------------------------------*/
+
+var sleep = function(time) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            // 模拟出错
+            reject('hahah,error')
+        }, time);
+    })
+};
+
+var start = async function() {
+    try {
+        console.log('start');
+        let result = await sleep(3000);
+        console.log(result);
+    } catch(err) {
+        console.error(err)
+    }
+
+}
+
+start()
+
+

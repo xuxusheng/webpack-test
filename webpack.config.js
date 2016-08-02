@@ -29,7 +29,7 @@ module.exports = (() => {
         // 三个入口文件，app，mobile 和 vendors
         app: path.resolve(APP_PATH, 'index.js'),
         mobile: path.resolve(APP_PATH, 'mobile.js'),
-        vendors: ['jquery', 'moment']
+        vendors: ['jquery', 'moment', 'babel-polyfill']
     }
 
     // config.output = {
@@ -56,7 +56,7 @@ module.exports = (() => {
             test: /\.js$/,
             loader: 'babel-loader',
             query: {
-                presets: ['es2015']
+                presets: ['es2015', 'stage-3']
             },
             include: APP_PATH
         }, {
@@ -72,24 +72,24 @@ module.exports = (() => {
         }, {
             test: /\.yaml$/,
             loader: 'json!yaml'
-        }],
-
-        preLoaders: [{
-            test: /\.js$/,
-            include: APP_PATH,
-            loader: 'jshint'
         }]
+
+        // preLoaders: [{
+        //     test: /\.js$/,
+        //     include: APP_PATH,
+        //     loader: 'jshint'
+        // }]
     }
 
-    config.jshint = {
-        esversion: 6,
-
-        // Allow global "use strict" (also enables 'strict')
-        globalstrict: false,
-
-        // Tolerate Automatic Semicolon Insertion (no semicolon)
-        asi: true
-    }
+    // config.jshint = {
+    //     esversion: 6,
+    //
+    //     // Allow global "use strict" (also enables 'strict')
+    //     globalstrict: false,
+    //
+    //     // Tolerate Automatic Semicolon Insertion (no semicolon)
+    //     asi: true
+    // }
 
     config.plugins = [
 
